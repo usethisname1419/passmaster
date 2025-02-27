@@ -7,3 +7,8 @@ worldpasses.py creates passwords based on languages such as ru(russian) ng(niger
 it creates random and structured pass words.
 
 i created this because i can never find any other language password lists.
+
+
+
+
+passmaster is kind of the samething without language choices
