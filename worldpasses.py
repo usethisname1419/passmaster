@@ -56,10 +56,16 @@ def generate_passwords(lang='en'):
     words = get_random_words(lang)
     passwords = set()
     
-    print(f"Generating 200,000 passwords using {lang} words...")
+    print(f"Generating 250,000 passwords using {lang} words...")
+
+    while len(passwords) < 50000:
+        length = random.randint(8, 14)
+        all_chars = string.ascii_letters + string.digits + special_chars
+        pwd = ''.join(random.choice(all_chars) for _ in range(length))
+        passwords.add(pwd)
     
     # Pattern 1: Numbers with special chars (50k)
-    while len(passwords) < 50000:
+    while len(passwords) < 100000:
         num = random.randint(100000, 999999999)
         chars = ''.join(random.choices(special_chars, k=random.randint(2,4)))
         pwd = f"{num}{chars}"
@@ -67,7 +73,7 @@ def generate_passwords(lang='en'):
             passwords.add(pwd)
     
     # Pattern 2: 3 letters + 3 numbers + 3 special chars (50k)
-    while len(passwords) < 100000:
+    while len(passwords) < 150000:
         letters = ''.join(random.choices(string.ascii_letters, k=3))
         numbers = ''.join(random.choices(string.digits, k=3))
         chars = ''.join(random.choices(special_chars, k=3))
@@ -75,7 +81,7 @@ def generate_passwords(lang='en'):
         passwords.add(pwd)
     
     # Pattern 3: Random mix (50k)
-    while len(passwords) < 150000:
+    while len(passwords) < 200000:
         length = random.randint(8, 14)
         parts = [
             ''.join(random.choices(string.ascii_letters, k=random.randint(3,5))),
@@ -87,7 +93,7 @@ def generate_passwords(lang='en'):
         passwords.add(pwd)
     
     # Pattern 4: Word-based passwords (50k)
-    while len(passwords) < 200000:
+    while len(passwords) < 250000:
         word = random.choice(words)
         pattern = random.choice([
             lambda: word + str(random.randint(1990,2024)) + random.choice(special_chars),
