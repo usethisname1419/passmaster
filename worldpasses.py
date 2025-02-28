@@ -158,6 +158,9 @@ def generate_passwords(lang='en'):
             lambda: word.title() + random.choice(special_chars) + str(random.randint(2020,2024)),
             lambda: word + ''.join(random.choices(string.digits, k=2)) + random.choice(words)
         ])
+        pwd = pattern()
+        if 8 <= len(pwd) <= 15:
+            passwords.add(pwd)
     # Pattern 5: Mixed case with special chars and numbers (50k)
     while len(passwords) < 300000:
         letters = ''.join(random.choices(string.ascii_letters, k=random.randint(4,6)))
