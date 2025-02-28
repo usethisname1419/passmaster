@@ -12,6 +12,22 @@ def get_random_words(lang='en', count=1000):
             'api': "https://random-word-api.herokuapp.com/word?number=1000",
             'fallback': ['password', 'secret', 'secure', 'admin', 'login', 'welcome']
         },
+        'es': {
+            'api': "https://api.dictionaryapi.dev/api/v2/entries/es/",
+            'fallback': ['contrasena', 'secreto', 'seguro', 'administrador', 'bienvenido', 'entrada', 'clave', 'usuario']
+        },
+        'da': {
+            'api': "https://api.dictionaryapi.dev/api/v2/entries/da/",
+            'fallback': ['adgangskode', 'sikkerhed', 'administrator', 'velkommen', 'hemmelighed', 'bruger', 'kodeord']
+        },
+        'fi': {
+            'api': "https://api.dictionaryapi.dev/api/v2/entries/fi/",
+            'fallback': ['salasana', 'turvallisuus', 'yllapitaja', 'tervetuloa', 'kayttaja', 'hallinta', 'kirjaudu']
+        },
+        'no': {
+            'api': "https://api.dictionaryapi.dev/api/v2/entries/no/",
+            'fallback': ['passord', 'sikkerhet', 'administrator', 'velkommen', 'bruker', 'innlogging', 'hemmelighet']
+        },
         'fr': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/fr/",
             'fallback': ['motdepasse', 'bonjour', 'securite', 'administrateur', 'bienvenue', 'secret']
@@ -21,15 +37,31 @@ def get_random_words(lang='en', count=1000):
             'fallback': ['parol', 'sekretniy', 'bezopasnost', 'admin', 'vhod', 'privet']
         },
         'cn': {
-            'api': None,  # No API needed for fallback only
-            'fallback': ['mima', 'anquan', 'guanliyuan', 'denglu', 'nihao', 'huanying']
-        },
-        'ng': {  # Nigerian (Yoruba transliterated)
             'api': None,
-            'fallback': ['asina', 'asiri', 'alaase', 'wole', 'ekabo', 'aabo']
+            'fallback': [
+        'mima', 'anquan', 'guanliyuan', 'denglu', 'nihao', 'huanying',
+        'yonghu', 'zhanghu', 'shouji', 'youxiang', 'wenben', 'shujuku',
+        'wangluo', 'ruanjian', 'yingjian', 'xitong', 'zhuce', 'tuichu',
+        'kaishi', 'jieshu', 'bangzhu', 'shezhi', 'geren', 'gongsi',
+        'xuexiao', 'laoshi', 'xuesheng', 'pengyou', 'jiating', 'gonggong',
+        'beijing', 'shanghai', 'xianggang', 'taiwan', 'zhongguo', 'meiguo',
+        'yingyu', 'hanyu', 'riyu', 'xiandai', 'gudai', 'weilai'
+    ]
+        },
+        'ng': {
+            'api': None,
+            'fallback': [
+        'asina', 'asiri', 'alaase', 'wole', 'ekabo', 'aabo',
+        'oluko', 'akeko', 'ile', 'omo', 'baba', 'iya', 
+        'olorun', 'eniyan', 'alafia', 'owuro', 'ale', 'osan',
+        'ojo', 'osu', 'odun', 'opolopo', 'kere', 'tobi',
+        'dara', 'buru', 'gbogbo', 'okan', 'meji', 'meta',
+        'iwe', 'ise', 'owo', 'ile', 'oko', 'oja',
+        'lagos', 'ibadan', 'ife', 'abeokuta', 'osun', 'oyo',
+        'yoruba', 'hausa', 'igbo', 'nigeria', 'afrika', 'duniya'
+    ]
         }
     }
-    
     if lang not in lang_data:
         print(f"Unsupported language {lang}, using English")
         lang = 'en'
@@ -57,7 +89,8 @@ def generate_passwords(lang='en'):
     passwords = set()
     
     print(f"Generating 250,000 passwords using {lang} words...")
-
+    
+    # NEW: Pattern 0: Totally Random (50k)
     while len(passwords) < 50000:
         length = random.randint(8, 14)
         all_chars = string.ascii_letters + string.digits + special_chars
@@ -80,7 +113,7 @@ def generate_passwords(lang='en'):
         pwd = f"{letters}{numbers}{chars}"
         passwords.add(pwd)
     
-    # Pattern 3: Random mix (50k)
+    # Pattern 3: Semi-structured mix (50k)
     while len(passwords) < 200000:
         length = random.randint(8, 14)
         parts = [
@@ -119,8 +152,8 @@ def generate_passwords(lang='en'):
 
 def main():
     parser = argparse.ArgumentParser(description='Generate passwords with different language words')
-    parser.add_argument('lang', choices=['en', 'fr', 'ru', 'cn', 'ng'],
-                      help='Language for word-based passwords (en=English, fr=French, ru=Russian, cn=Chinese, ng=Nigerian)')
+    parser.add_argument('lang', choices=['en', 'es', 'da', 'fi', 'no', 'fr', 'ru', 'cn', 'ng'],
+                      help='Language for word-based passwords (en=English, es=Spanish, da=Danish, fi=Finnish, no=Norwegian, fr=French, ru=Russian, cn=Chinese, ng=Nigerian)')
     
     args = parser.parse_args()
     generate_passwords(args.lang)
