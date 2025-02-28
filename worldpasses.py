@@ -88,7 +88,7 @@ def generate_passwords(lang='en'):
     words = get_random_words(lang)
     passwords = set()
     
-    print(f"Generating 250,000 passwords using {lang} words...")
+    print(f"Generating 400,000 passwords using {lang} words...")
     
     # NEW: Pattern 0: Totally Random (50k)
     while len(passwords) < 50000:
@@ -134,10 +134,34 @@ def generate_passwords(lang='en'):
             lambda: word.title() + random.choice(special_chars) + str(random.randint(2020,2024)),
             lambda: word + ''.join(random.choices(string.digits, k=2)) + random.choice(words)
         ])
-        
-        pwd = pattern()
+    # Pattern 5: Mixed case with special chars and numbers (50k)
+    while len(passwords) < 300000:
+        letters = ''.join(random.choices(string.ascii_letters, k=random.randint(4,6)))
+        numbers = ''.join(random.choices(string.digits, k=random.randint(2,4)))
+        chars = ''.join(random.choices(special_chars, k=random.randint(2,3)))
+        pwd = f"{letters}{numbers}{chars}"
+        passwords.add(pwd)
+    
+    # Pattern 6: Word + Random Special Char + Year (50k)
+    while len(passwords) < 350000:
+        word = random.choice(words)
+        year = random.randint(2010, 2024)
+        chars = random.choice(special_chars)
+        pwd = f"{word}{chars}{year}"
         if 8 <= len(pwd) <= 14:
             passwords.add(pwd)
+
+  
+    # NEW: Pattern 7: 2 words + 3 numbers + special char (50k)
+    while len(passwords) < 400000:
+        word1 = random.choice(words)
+        word2 = random.choice(words)
+        numbers = ''.join(random.choices(string.digits, k=3))
+        special_char = random.choice(special_chars)
+        pwd = f"{word1}{word2}{numbers}{special_char}"
+        if 8 <= len(pwd) <= 14:
+            passwords.add(pwd)
+
     
     # Write to file
     filename = f'world-passwords_{lang}.txt'
