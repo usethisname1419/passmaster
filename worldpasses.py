@@ -92,7 +92,7 @@ def generate_passwords(lang='en'):
     
     # NEW: Pattern 0: Totally Random (50k)
     while len(passwords) < 50000:
-        length = random.randint(8, 14)
+        length = random.randint(8, 15)
         all_chars = string.ascii_letters + string.digits + special_chars
         pwd = ''.join(random.choice(all_chars) for _ in range(length))
         passwords.add(pwd)
