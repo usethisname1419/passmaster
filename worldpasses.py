@@ -10,58 +10,82 @@ def get_random_words(lang='en', count=1000):
     lang_data = {
         'en': {
             'api': "https://random-word-api.herokuapp.com/word?number=1000",
-            'fallback': ['password', 'secret', 'secure', 'admin', 'login', 'welcome']
+            'fallback': [
+                'password', 'secret', 'secure', 'admin', 'login', 'welcome', 'user', 'access', 
+                '12345', 'qwerty', 'default', 'root', 'letmein', 'security', 'account', 'code', 
+                'session', 'password123', 'john', 'michael', 'sarah', 'emma'
+            ]
         },
         'es': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/es/",
-            'fallback': ['contrasena', 'secreto', 'seguro', 'administrador', 'bienvenido', 'entrada', 'clave', 'usuario']
+            'fallback': [
+                'contrasena', 'secreto', 'seguro', 'administrador', 'bienvenido', 'entrada', 
+                'clave', 'usuario', 'acceso', '123456', 'admin', 'root', 'contraseña', 'codigo', 
+                'sesion', 'cuenta', 'seguridad', 'clave123', 'juan', 'maria', 'pedro', 'luis'
+            ]
         },
         'da': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/da/",
-            'fallback': ['adgangskode', 'sikkerhed', 'administrator', 'velkommen', 'hemmelighed', 'bruger', 'kodeord']
+            'fallback': [
+                'adgangskode', 'sikkerhed', 'administrator', 'velkommen', 'hemmelighed', 'bruger', 
+                'kodeord', 'adgang', '12345', 'root', 'passord', 'login', 'kode', 'konto', 'session', 
+                'sikker', 'hemmelig', 'login123', 'karl', 'anne', 'lars', 'mette'
+            ]
         },
         'fi': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/fi/",
-            'fallback': ['salasana', 'turvallisuus', 'yllapitaja', 'tervetuloa', 'kayttaja', 'hallinta', 'kirjaudu']
+            'fallback': [
+                'salasana', 'turvallisuus', 'yllapitaja', 'tervetuloa', 'kayttaja', 'hallinta', 
+                'kirjaudu', 'avoin', '12345', 'admin', 'pääsy', 'salasanasana', 'tili', 'koodi', 
+                'istunto', 'suojaus', 'password123', 'kirjautuminen', 'mikko', 'anna', 'jussi', 'kati'
+            ]
         },
         'no': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/no/",
-            'fallback': ['passord', 'sikkerhet', 'administrator', 'velkommen', 'bruker', 'innlogging', 'hemmelighet']
+            'fallback': [
+                'passord', 'sikkerhet', 'administrator', 'velkommen', 'bruker', 'innlogging', 
+                'hemmelighet', '123456', 'admin', 'login', 'root', 'hemmelig', 'konto', 'passord123', 
+                'tilgang', 'sesjon', 'kode', 'sikker', 'olav', 'ingrid', 'hans', 'marit'
+            ]
         },
         'fr': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/fr/",
-            'fallback': ['motdepasse', 'bonjour', 'securite', 'administrateur', 'bienvenue', 'secret']
+            'fallback': [
+                'motdepasse', 'bonjour', 'securite', 'administrateur', 'bienvenue', 'secret', 
+                'utilisateur', 'acces', '12345', 'root', 'connexion', 'letmein', 'code', 'compte', 
+                'session', 'securiser', 'motdepasse123', 'login', 'jean', 'marie', 'paul', 'lucie'
+            ]
         },
         'ru': {
             'api': "https://api.dictionaryapi.dev/api/v2/entries/ru/",
-            'fallback': ['parol', 'sekretniy', 'bezopasnost', 'admin', 'vhod', 'privet']
+            'fallback': [
+                'parol', 'sekretniy', 'bezopasnost', 'admin', 'vhod', 'privet', 'dostup', '12345', 
+                'root', 'login', 'password', 'user', 'kodus', 'sekuriti', 'akkkount', 'session', 
+                'parol123', 'vhod123', 'alexei', 'olga', 'ivan', 'anna'
+            ]
         },
         'cn': {
             'api': None,
             'fallback': [
-        'mima', 'anquan', 'guanliyuan', 'denglu', 'nihao', 'huanying',
-        'yonghu', 'zhanghu', 'shouji', 'youxiang', 'wenben', 'shujuku',
-        'wangluo', 'ruanjian', 'yingjian', 'xitong', 'zhuce', 'tuichu',
-        'kaishi', 'jieshu', 'bangzhu', 'shezhi', 'geren', 'gongsi',
-        'xuexiao', 'laoshi', 'xuesheng', 'pengyou', 'jiating', 'gonggong',
-        'beijing', 'shanghai', 'xianggang', 'taiwan', 'zhongguo', 'meiguo',
-        'yingyu', 'hanyu', 'riyu', 'xiandai', 'gudai', 'weilai'
-    ]
+                'mima', 'anquan', 'guanliyuan', 'denglu', 'nihao', 'huanying', 'yonghu', 'zhanghu', 
+                'shouji', 'youxiang', 'wenben', 'shujuku', 'wangluo', 'ruanjian', 'yingjian', 'xitong', 
+                'zhuce', 'tuichu', 'kaishi', 'jieshu', 'bangzhu', 'shezhi', 'geren', 'gongsi', 'xuexiao', 
+                'laoshi', 'xuesheng', 'pengyou', 'jiating', 'gonggong', 'beijing', 'shanghai', 'xianggang', 
+                'taiwan', 'zhongguo', 'meiguo', 'yingyu', 'hanyu', 'riyu', 'xiandai', 'gudai', 'weilai'
+            ]
         },
         'ng': {
             'api': None,
             'fallback': [
-        'asina', 'asiri', 'alaase', 'wole', 'ekabo', 'aabo',
-        'oluko', 'akeko', 'ile', 'omo', 'baba', 'iya', 
-        'olorun', 'eniyan', 'alafia', 'owuro', 'ale', 'osan',
-        'ojo', 'osu', 'odun', 'opolopo', 'kere', 'tobi',
-        'dara', 'buru', 'gbogbo', 'okan', 'meji', 'meta',
-        'iwe', 'ise', 'owo', 'ile', 'oko', 'oja',
-        'lagos', 'ibadan', 'ife', 'abeokuta', 'osun', 'oyo',
-        'yoruba', 'hausa', 'igbo', 'nigeria', 'afrika', 'duniya'
-    ]
+                'asina', 'asiri', 'alaase', 'wole', 'ekabo', 'aabo', 'oluko', 'akeko', 'ile', 'omo', 
+                'baba', 'iya', 'olorun', 'eniyan', 'alafia', 'owuro', 'ale', 'osan', 'ojo', 'osu', 'odun', 
+                'opolopo', 'kere', 'tobi', 'dara', 'buru', 'gbogbo', 'okan', 'meji', 'meta', 'iwe', 'ise', 
+                'owo', 'ile', 'oko', 'oja', 'lagos', 'ibadan', 'ife', 'abeokuta', 'osun', 'oyo', 'yoruba', 
+                'hausa', 'igbo', 'nigeria', 'afrika', 'duniya'
+            ]
         }
     }
+
     if lang not in lang_data:
         print(f"Unsupported language {lang}, using English")
         lang = 'en'
