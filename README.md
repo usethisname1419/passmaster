@@ -1,6 +1,6 @@
 create password lists
 
-worldpasses.py creates passwords based on languages such as ru(russian) ng(nigerian) en(english) fr(french) cn(chinese)
+worldpasses.py creates passwords based on languages such as ru(russian) ng(nigerian) en(english) fr(french) cn(chinese) fi(finland) no(norwegien) es(spansih)
 
 `python worldpasses.py cn`
 
