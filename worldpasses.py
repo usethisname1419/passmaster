@@ -102,7 +102,7 @@ def generate_passwords(lang='en'):
         num = random.randint(100000, 999999999)
         chars = ''.join(random.choices(special_chars, k=random.randint(2,4)))
         pwd = f"{num}{chars}"
-        if 8 <= len(pwd) <= 14:
+        if 8 <= len(pwd) <= 15:
             passwords.add(pwd)
     
     # Pattern 2: 3 letters + 3 numbers + 3 special chars (50k)
@@ -115,7 +115,7 @@ def generate_passwords(lang='en'):
     
     # Pattern 3: Semi-structured mix (50k)
     while len(passwords) < 200000:
-        length = random.randint(8, 14)
+        length = random.randint(8, 15)
         parts = [
             ''.join(random.choices(string.ascii_letters, k=random.randint(3,5))),
             ''.join(random.choices(string.digits, k=random.randint(2,4))),
@@ -148,7 +148,7 @@ def generate_passwords(lang='en'):
         year = random.randint(2010, 2024)
         chars = random.choice(special_chars)
         pwd = f"{word}{chars}{year}"
-        if 8 <= len(pwd) <= 14:
+        if 8 <= len(pwd) <= 15:
             passwords.add(pwd)
 
   
@@ -159,7 +159,7 @@ def generate_passwords(lang='en'):
         numbers = ''.join(random.choices(string.digits, k=3))
         special_char = random.choice(special_chars)
         pwd = f"{word1}{word2}{numbers}{special_char}"
-        if 8 <= len(pwd) <= 14:
+        if 8 <= len(pwd) <= 15:
             passwords.add(pwd)
 
     
