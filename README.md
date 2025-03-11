@@ -9,6 +9,7 @@ it creates random and structured pass words.
 i created this because i can never find any other language password lists.
 
 
+mixer.py is like john rules but easier and automatic
 
 
 passmaster is kind of the samething without language choices
